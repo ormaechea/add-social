@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |table|
       table.string :username
       table.string :email
-      table.string :password
+      table.string :password_hash
 
     end
   end
