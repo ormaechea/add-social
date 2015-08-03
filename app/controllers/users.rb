@@ -16,6 +16,7 @@ get '/sessions' do
   end
 end
 
+
 get '/users/:id' do
   erb :'/users/show'
 end
