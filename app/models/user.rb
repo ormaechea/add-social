@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
+  has_many :accounts
 
   def password
     @password ||= Password.new(password_hash)

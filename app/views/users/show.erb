@@ -1,4 +1,37 @@
 <h1>Welcome, "<%=current_user.username %>"</h1>
+<br><br>
+
+<div class="container">
+  <%@number_accounts.each do |account|%>
+   <!--  <img src=""/> -->
+
+      <form action="/users/<%=current_user.id%>" method="post">
+          <input type="hidden" name="_method" value="put">
+          <input type="hidden" name="social_network" value="<%=account.social_network%>">
+          <label for="username"><%=account.social_network%> username:</label>
+          <input type="text" name="username" value="<%= account.username%>">
+           <input type="submit" value="Update">
+      </form>
+
+      <form action="/users/<%=current_user.id%>/<%=account.social_network%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete">
+      </form>
+      <br><br>
+  <%end%>
+</div>
+
+<br><br><br>
+
+<p>Add a new social network account:</p>
+<form action="/accounts/new" method="post">
+    <label for="username">username:</label>
+    <input type="text" name="username" id="username">
+    <label for="social_network">social network:</label>
+    <input type="text" name="social_network" id="social_network">
+    <input type="submit" value="Add Account">
+</form>
+<br><br><br>
 
 <form action="/logout" method="get">
   <input type="submit" value="Logout">
